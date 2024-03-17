@@ -30,9 +30,7 @@ function UlkeListe() {
 
   function filtrele(ulkeler) {
     return ulkeler.filter((item) => {
-
-      if (filterParam !== "Tümü") 
-        if (item.region !== filterParam) return;
+      if (filterParam !== "Tümü") if (item.region !== filterParam) return;
 
       // eğer herhangi bir kıta seçildiyse veya tümü seçildiye ⏬
 
@@ -84,31 +82,40 @@ function UlkeListe() {
   return (
     <>
       <h2>ÜLKE LİSTESİ</h2>
-      <div className="mb-4">
-        <input
-          value={arama}
-          onChange={(e) => {
-            aramaGuncelle(e.target.value);
-          }}
-          className="form-control"
-          type="text"
-          placeholder="Arama ifadesi.."
-        />
+      <div className="row mb-4">
+        <div className="col-6">
+            <h3>FİLTRELEME</h3>
+          <div className="">
+            <input
+              value={arama}
+              onChange={(e) => {
+                aramaGuncelle(e.target.value);
+              }}
+              className="form-control"
+              type="text"
+              placeholder="Arama ifadesi.."
+            />
 
-        <select
-          onChange={(e) => {
-            setFilterParam(e.target.value);
-          }}
-          className="form-select"
-          aria-label="Filter Countries By Region"
-        >
-          <option value="Tümü">Bölgelere Göre Filtrele</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
+            <select
+              onChange={(e) => {
+                setFilterParam(e.target.value);
+              }}
+              className="form-select"
+              aria-label="Filter Countries By Region"
+            >
+              <option value="Tümü">Bölgelere Göre Filtrele</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">America</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="col-6">
+            <h3>SIRALAMA</h3>
+        </div>
       </div>
       Sayı: {filtrelenmisUlkeler.length}
       <div className="row g-3">
